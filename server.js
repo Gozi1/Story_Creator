@@ -9,15 +9,7 @@ const app = express();
 
 
 app.set("view engine", "ejs");
-
-app.use(
-  '/styles',
-  sassMiddleware({
-    source: __dirname + '/styles',
-    destination: __dirname + '/public/styles',
-    isSass: false, // false => scss, true => sass
-  })
-);
+app.use(express.static(__dirname + '/public'));
 
 app.get("/",(req,res) => {
   res.render('urls_index');
